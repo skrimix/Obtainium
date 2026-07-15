@@ -36,6 +36,18 @@ class RuStore extends AppSource {
   }
 
   @override
+  Future<Map<String, String>?> getRequestHeaders(
+    Map<String, dynamic> additionalSettings,
+    String url, {
+    bool forAPKDownload = false,
+  }) async {
+    if (forAPKDownload) {
+      return null;
+    }
+    return {'ruStoreVerCode': '2000000000'};
+  }
+
+  @override
   Future<APKDetails> getLatestAPKDetails(
     String standardUrl,
     Map<String, dynamic> additionalSettings,
